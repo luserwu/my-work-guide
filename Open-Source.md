@@ -10,7 +10,17 @@
 3.[Mall-Swarm](https://github.com/macrozheng/mall-swarm)  
 >### java技术文档  
 
-1.[SpringCloud-Learning](https://github.com/macrozheng/springcloud-learning)  
+1.[SpringCloud-Learning](https://github.com/macrozheng/springcloud-learning)   
+2.[Vue](http://doc.vue-js.com/)  
+3.[微信开发](https://developers.weixin.qq.com/doc/)  
+4.[kafka](http://kafka.apachecn.org/)  
+5.[k8s](https://www.kubernetes.org.cn/k8s)  
+6.[mybatis](https://mp.baomidou.com/)  
+7.[layui](https://www.layui.com/doc/)  
+8.[es](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)  
+9.[nacos](http://dubbo.apache.org/zh-cn/docs/user/references/registry/nacos.html)  
+10.[element-ui](https://element.eleme.cn/#/zh-CN)   
+11.[docker中文社区](https://www.docker.org.cn/)  
+12.[springcloud全家桶中文网](https://www.springcloud.cc/)
 
-来聊5毛钱的天 :fa-comments-o: 
-![](logo/weixin.jpg)
+![](logo/weixin.jpg)  
