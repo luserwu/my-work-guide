@@ -1,5 +1,9 @@
 <!-- docs/_sidebar.md -->
 
-*   [开源项目](/) 
+*   [Open-Source](Open-Source.md) 
 
-*   [Java](java/)
+*   [Java](Java.md)
+
+*   [Git](Git.md)
+
+*   [Online-Tool](Site.md)
