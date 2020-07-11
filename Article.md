@@ -73,10 +73,10 @@ docker rmi 镜像id
 >### 配置git  
 
 1.配置git环境  
-"""
+'''
 git config --global user.name "你的用户名"  
 git config --global user.email "你的注册邮箱"  
-"""
+'''
 2.生成SSH秘钥  
 ssh-keygen -C "你的注册邮箱" -t rsa  
 3.github配置公钥  
