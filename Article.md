@@ -46,7 +46,7 @@ Online-Tool  ->  在线工具  ->  Chrome插件下载  ->  下载需要的.crx�
 >### docker
 
 - 非root用户如何使用docker:  
-1.查看是否有docker用户组
+1.查看是否有docker用户组  
   sudo cat /etc/group | grep docker  
 2.若无则创建用户组,并将用户添加进docker用户组  
   sudo groupadd -g 999 docker(999为组id)  
@@ -57,18 +57,23 @@ Online-Tool  ->  在线工具  ->  Chrome插件下载  ->  下载需要的.crx�
 4.需要/var/run/docker.sock权限  
   sudo chmod a+rw /var/run/docker.sock  
 - docker卸载镜像:
-1.查看镜像进程:docker ps -a  
-2.停止镜像进程:docker stop 容器id  
-3.删除镜像进程:docker rm 容器id  
-4.查看docker镜像:docker images  
-5.删除docker镜像:docker rmi 镜像id  
+1.查看镜像进程:  
+docker ps -a  
+2.停止镜像进程:  
+docker stop 容器id  
+3.删除镜像进程:  
+docker rm 容器id  
+4.查看docker镜像:  
+docker images  
+5.删除docker镜像:  
+docker rmi 镜像id  
 - docker基础命令  
 ![](source/docker命令.png)  
 
 >### 配置git  
 
 1.配置git环境  
-git config --global user.name "你的用户名"
+git config --global user.name "你的用户名"  
 git config --global user.email "你的注册邮箱"  
 2.生成SSH秘钥  
 ssh-keygen -C "你的注册邮箱" -t rsa  
