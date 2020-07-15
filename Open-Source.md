@@ -24,7 +24,6 @@
 12.[springcloud全家桶中文网](https://www.springcloud.cc/)    
 13.[dubbo](http://dubbo.apache.org/zh-cn/docs/user/quick-start.html)
 
->### java技术图  
-![](source/java.jpg)
-
-![](logo/weixin.jpg)  
+>### java技术图
+  
+![](source/java.jpg) 
