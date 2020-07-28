@@ -49,8 +49,15 @@ Online-Tool  ->  在线工具  ->  Chrome插件下载  ->  下载需要的.crx�
 ```
 安装docker
 sudo yum update
-curl -sSL https://get.docker.com/ | sh
-sudo systemctl start docker  
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+sudo systemctl start docker
+添加仓库
+yum-config-manager \
+    --add-repo \
+    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum-config-manager \
+    --add-repo \
+    https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo  
 ```
 ```
 安装docker-compose
