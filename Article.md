@@ -105,3 +105,37 @@ setting填入生成的公钥(id_rsa.pub)
 ```
 ssh-add  ~/.ssh/id_rsa
 ```
+
+>### centos7 
+
+ 重启ssh  
+ `
+ systemctl restart sshd.service
+ `  
+ ssh开机自启动  
+ `
+ systemctl enable sshd.service
+ `  
+ 
+ 设置开机模式  
+ `systemctl get-default(获取当前模式)`  
+ `
+ systemctl set-default graphical.target(multi_user.target 多用户模式)
+ `  
+ 安装图形界面  
+ `
+ yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+ `  
+ 静态IP联网设置  
+ 进入VMware虚拟网络编译器将子网IP改成宿主机同网段IP，取消DHCP，NET设置网关IP为子网IP同网段，如下图：
+ ![](source/centos7联网配置.jpg)  
+ ![](source/centos7联网配置2.jpg)  
+ centos7终端修改配置文件(vi /etc/sysconfig/network-scripts/ifcfg-ens33)  
+ ![](source/centos7联网配置3.jpg)  
+ 重启网络  
+ `
+ systemctl restart network
+ `
+ 
+
+
