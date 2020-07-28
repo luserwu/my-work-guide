@@ -45,6 +45,17 @@ Online-Tool  ->  在线工具  ->  Chrome插件下载  ->  下载需要的.crx�
 
 >### docker
 
+- 安装docker和docker-compose  
+```
+安装docker
+sudo yum update
+curl -sSL https://get.docker.com/ | sh
+sudo systemctl start docker  
+```
+```
+安装docker-compose
+pip install docker-compose --ignore-installed requests
+```
 - 非root用户如何使用docker:  
 1.查看是否有docker用户组  
 ```
@@ -137,5 +148,15 @@ ssh-add  ~/.ssh/id_rsa
  systemctl restart network
  `
  
-
+安装pip  
+`
+yum -y install epel-release
+`   
+`
+yum -y install python-pip
+`  
+升级pip     
+`
+pip install --upgrade pip
+`
 
