@@ -148,15 +148,83 @@ ssh-add  ~/.ssh/id_rsa
  systemctl restart network
  `
  
-安装pip  
+ 安装pip  
+ `
+ yum -y install epel-release
+ `   
+ `
+ yum -y install python-pip
+ `  
+ 升级pip     
+ `
+ pip install --upgrade pip
+ `
+
+>### 搭建gitlab
+
+- 安装依赖关系包ssh  
+ `
+ yum -y install curl policycoreutils openssh-server openssh-clients postfix 
+ `
+- 安装防火墙并启动  
+```
+   yum -y install firewalld systemd
+   systemctl start firewalld
+```
+- 添加http服务到firewalld,pemmanent表示永久生效  
+```
+   firewall-cmd --permanent --add-service=http
+   systemctl restart firewalld
+```
+- 安装Postfix以发送通知邮件  
+```
+   yum -y install postfix 
+   systemctl start postfix
+   systemctl enable postfix
+```
+- 添加gitlab镜像  
 `
-yum -y install epel-release
-`   
+wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
 `
-yum -y install python-pip
-`  
-升级pip     
+- 安装gitlab  
+```
+   yum -y install policycoreutils-python  
+   rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
+```
+- 修改gitlab配置文件指定服务器ip和自定义端口  
 `
-pip install --upgrade pip
+vim /etc/gitlab/gitlab.rb
 `
+- 重置并启动GitLab  
+```aidl
+   gitlab-ctl reconfigure
+   gitlab-ctl restart
+```
+- gitlab常用命令  
+```aidl
+   iptables -F 清除防火墙规则
+   gitlab-ctl start 启动全部服务
+   gitlab-ctl restart 重启全部服务   
+   gitlab-ctl stop 停止全部服务   
+   gitlab-ctl reconfigure 使配置文件生效   
+   gitlab-ctl show-config 验证配置文件   
+   gitlab-ctl uninstall 删除gitlab（保留数据）   
+   gitlab-ctl cleanse 删除所有数据，从新开始
+```
+- gitlab汉化  
+```aidl
+   yum -y install git
+   git clone https://gitlab.com/xhang/gitlab.git  克隆获取汉化版本库
+   gitlab-ctl stop  先将gitlab关闭
+   cd /root/gitlab  切换到gitlab汉化包所在的目录
+   git diff v10.2.3 v10.2.3-zh > ../10.2.3-zh.diff  比较汉化标签和原标签，导出 patch 用的 diff 文件到/root下
+   yum -y install patch  下载补丁
+   patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < /root/10.2.3-zh.diff  将10.2.3-zh.diff作为补丁更新到gitlab中
+   gitlab-ctl restart  启动gitlab
+```
+- 创建gitlab root_ssh 秘钥  
+```aidl
+   ssh-keygen  -t rsa
+   cat /root/.ssh/id_rsa.pub
+```
 
